@@ -1,11 +1,9 @@
 <?php
 
-
-
 namespace LoveOSS\Github\Entity;
 
-use LoveOSS\Github\Exception\UserAgentNotFoundException;
 use LoveOSS\Github\Exception\AllowUrlFileOpenException;
+use LoveOSS\Github\Exception\UserAgentNotFoundException;
 
 class PullRequest
 {
@@ -945,9 +943,9 @@ class PullRequest
             'http' => [
                 'method' => 'GET',
                 'header' => [
-                    'User-Agent: '. $userAgent
-                ]
-            ]
+                    'User-Agent: ' . $userAgent,
+                ],
+            ],
         ];
 
         $context = stream_context_create($opts);

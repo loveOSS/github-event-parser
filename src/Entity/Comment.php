@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace LoveOSS\Github\Entity;
 
 class Comment
@@ -10,9 +8,6 @@ class Comment
     private string $htmlUrl;
     private string $id;
 
-    /**
-     * @var User
-     */
     private User $user;
     private string $position;
     private string $line;
@@ -25,7 +20,7 @@ class Comment
     /**
      * @param array<string> $data
      */
-    public static function createFromData(array $data) : self
+    public static function createFromData(array $data): self
     {
         return new static($data);
     }
@@ -55,62 +50,62 @@ class Comment
         $this->body = isset($data['body']) ? $data['body'] : '';
     }
 
-    public function getUrl() : string
+    public function getUrl(): string
     {
         return $this->url;
     }
 
-    public function getHtmlUrl() : string
+    public function getHtmlUrl(): string
     {
         return $this->htmlUrl;
     }
 
-    public function getId() : string
+    public function getId(): string
     {
         return $this->id;
     }
 
-    public function getUser() : User
+    public function getUser(): User
     {
         return $this->user;
     }
 
-    public function getUserLogin() : string
+    public function getUserLogin(): string
     {
         return $this->user->getLogin();
     }
 
-    public function getPosition() : string
+    public function getPosition(): string
     {
         return $this->position;
     }
 
-    public function getLine() : string
+    public function getLine(): string
     {
         return $this->line;
     }
 
-    public function getPath() : string
+    public function getPath(): string
     {
         return $this->path;
     }
 
-    public function getCommitId() : string
+    public function getCommitId(): string
     {
         return $this->commitId;
     }
 
-    public function getCreatedAt() : string
+    public function getCreatedAt(): string
     {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt() : string
+    public function getUpdatedAt(): string
     {
         return $this->updatedAt;
     }
 
-    public function getBody() : string
+    public function getBody(): string
     {
         return $this->body;
     }
@@ -120,7 +115,7 @@ class Comment
      *
      * @return string the comment
      */
-    public function __toString() : string
+    public function __toString(): string
     {
         return $this->body;
     }

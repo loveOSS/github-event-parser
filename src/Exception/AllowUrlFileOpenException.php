@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace LoveOSS\Github\Exception;
 
 class AllowUrlFileOpenException extends InvalidPhpConfigurationException

@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace LoveOSS\Github\Entity;
 
 class Integration
@@ -32,8 +30,6 @@ class Integration
     private $htmlUrl;
 
     /**
-     * @param array $data
-     *
      * @return self
      */
     public static function createFromData(array $data)
