@@ -82,15 +82,15 @@ class Comment
         return $this->user;
     }
 
-     /**
-      * Gets the author of comment.
-      *
-      * @return string
-      */
-     public function getUserLogin()
-     {
-         return $this->user->getLogin();
-     }
+    /**
+     * Gets the author of comment.
+     *
+     * @return string
+     */
+    public function getUserLogin()
+    {
+        return $this->user->getLogin();
+    }
 
     /**
      * Gets the value of position.

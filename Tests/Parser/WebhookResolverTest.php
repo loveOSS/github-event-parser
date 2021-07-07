@@ -5,8 +5,9 @@
 namespace Tests\Parser;
 
 use LoveOSS\Github\Parser\WebhookResolver;
+use PHPUnit\Framework\TestCase;
 
-class WebhookResolverTest extends \PHPUnit_Framework_TestCase
+class WebhookResolverTest extends TestCase
 {
     /** @var $userAgent string */
     public static $userAgent;
@@ -17,19 +18,19 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
     /** @var $jsonDataFolder string */
     private $jsonDataFolder;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         self::$userAgent = 'MyClient/1.0.0';
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         ini_set('user_agent', self::$userAgent);
         $this->resolver = new WebhookResolver();
         $this->jsonDataFolder = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'json-data'.DIRECTORY_SEPARATOR;
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->resolver = null;
     }
@@ -153,7 +154,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("LoveOSS\Github\EventType\GollumEvent", $event);
         $this->assertInstanceOf("LoveOSS\Github\Entity\Repository", $event->repository);
         $this->assertInstanceOf("LoveOSS\Github\Entity\User", $event->sender);
-        $this->assertInternalType('array', $event->pages);
+        $this->assertIsArray($event->pages);
         $this->assertCount(2, $event->pages);
 
         $this->assertInstanceOf("LoveOSS\Github\Entity\Page", current($event->pages));
@@ -198,7 +199,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
     public function testResolvePullRequestEventCommitThrowsException()
     {
         ini_set('user_agent', '');
-        $this->setExpectedException('LoveOSS\Github\Exception\UserAgentNotFoundException');
+        $this->expectException('LoveOSS\Github\Exception\UserAgentNotFoundException');
 
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'pull_request_event.json'), true);
         $event = $this->resolver->resolve($jsonReceived);
@@ -207,7 +208,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
 
     public function testResolveWithMissingRepositoryThrowsException()
     {
-        $this->setExpectedException('LoveOSS\Github\Exception\RepositoryNotFoundException');
+        $this->expectException('LoveOSS\Github\Exception\RepositoryNotFoundException');
 
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'repository_not_found.json'), true);
         $this->resolver->resolve($jsonReceived);
@@ -215,7 +216,7 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
 
     public function testResolveWithMalformedRepositoryThrowsException()
     {
-        $this->setExpectedException('LoveOSS\Github\Exception\RepositoryNotFoundException');
+        $this->expectException('LoveOSS\Github\Exception\RepositoryNotFoundException');
 
         $jsonReceived = json_decode(file_get_contents($this->jsonDataFolder.'repository_malformed.json'), true);
         $this->resolver->resolve($jsonReceived);
@@ -230,8 +231,8 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("LoveOSS\Github\Entity\Integration", $event->integration);
         $this->assertInstanceOf("LoveOSS\Github\Entity\User", $event->sender);
 
-        $this->assertInternalType('string', $event->integration->getAccessTokenUrl());
-        $this->assertInternalType('string', $event->integration->getRepositoriesUrl());
+        $this->assertIsString($event->integration->getAccessTokenUrl());
+        $this->assertIsString($event->integration->getRepositoriesUrl());
     }
 
     public function testResolveIntegrationInstallationRepositoriesEvent()
@@ -242,12 +243,12 @@ class WebhookResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("LoveOSS\Github\EventType\IntegrationInstallationRepositoriesEvent", $event);
         $this->assertInstanceOf("LoveOSS\Github\Entity\Integration", $event->integration);
         $this->assertInstanceOf("LoveOSS\Github\Entity\User", $event->sender);
-        $this->assertInternalType('string', $event->repositorySelection);
-        $this->assertInternalType('array', $event->repositoryAdded);
-        $this->assertInternalType('array', $event->repositoryRemoved);
+        $this->assertIsString($event->repositorySelection);
+        $this->assertIsArray($event->repositoryAdded);
+        $this->assertIsArray($event->repositoryRemoved);
 
-        $this->assertInternalType('string', $event->integration->getAccessTokenUrl());
-        $this->assertInternalType('string', $event->integration->getRepositoriesUrl());
-        $this->assertInternalType('string', $event->integration->getHtmlUrl());
+        $this->assertIsString($event->integration->getAccessTokenUrl());
+        $this->assertIsString($event->integration->getRepositoriesUrl());
+        $this->assertIsString($event->integration->getHtmlUrl());
     }
 }

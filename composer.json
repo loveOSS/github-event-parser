@@ -18,16 +18,30 @@
         "psr-4": { "Tests\\": "Tests/" }
     },
     "require": {
-        "php": ">=5.4"
+        "php": "^7.4|^8.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.7",
-        "friendsofphp/php-cs-fixer": "~1.11"
+        "edgedesign/phpqa": "^v1.24",
+        "phpunit/phpunit": "^8.0",
+        "friendsofphp/php-cs-fixer": "^2.18",
+        "vimeo/psalm": "^4.3"
     },
     "minimum-stability": "stable",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        }
+    "scripts": {
+        "cs-fix": "@php ./vendor/bin/php-cs-fixer fix",
+        "phpqa": "@php ./vendor/bin/phpqa --report --tools phpcs:0,phpmd:0,phpmetrics,phploc,pdepend,security-checker:0,parallel-lint:0 --ignoredDirs tests,vendor",
+        "phpstan": "@php ./vendor/bin/phpstan analyse src --level max -c extension.neon",
+        "psalm": "@php ./vendor/bin/psalm --threads=8 --diff",
+        "test": "@php ./vendor/bin/phpunit"
+    },
+    "scripts-descriptions": {
+        "cs-fix": "Check and fix coding styles using PHP CS Fixer",
+        "phpqa": "Execute PHQA toolsuite analysis",
+        "phpstan": "Execute PHPStan analysis",
+        "psalm": "Execute Psalm analysis",
+        "test": "Launch PHPUnit test suite"
+    },
+    "config": {
+        "sort-packages": true
     }
 }
