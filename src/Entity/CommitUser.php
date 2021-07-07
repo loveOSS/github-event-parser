@@ -1,6 +1,5 @@
 <?php
 
-
 namespace LoveOSS\Github\Entity;
 
 class CommitUser
@@ -42,6 +41,6 @@ class CommitUser
      */
     public function __toString()
     {
-        return $this->name.' ('.$this->email.')';
+        return $this->name . ' (' . $this->email . ')';
     }
 }

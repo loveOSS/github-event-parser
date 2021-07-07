@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace LoveOSS\Github\Entity;
 
 class Release
