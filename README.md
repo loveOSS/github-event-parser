@@ -1,7 +1,11 @@
 Github event parser library
 ============================
 
-This is a naive PHP library to provide readable representations of json responses from [Github Events Api v3](https://developer.github.com/v3/activity/events/types/).
+> This library is a reupload of a library created by [Mickaël Andrieu](https://github.com/mickaelandrieu) in 2016 for the Lp Digital web agency, Paris, France.
+  We have obtained the authorization from the former creator to change the licence from GNU-GPL v2 to MIT.
+  PHP Developers : consider using love-oss/github-event-parser as a direct replacement of lp-digital/github-event-parser.
+
+Github Event Parser is a naive PHP library aimed to provide readable representations of json responses from [Github Events Api v3](https://developer.github.com/v3/activity/events/types/).
 
 Thanks to the Github webhooks, any administrator of a repository can access and listen theses events returned into json responses.
 
@@ -16,7 +20,7 @@ A lot of usages are available since you can listen all events:
 ## Installation
 
 ```bash
-$ composer require "lp-digital/github-event-parser"
+$ composer require "love-oss/github-event-parser"
 ```
 
 ## PHP requirements
@@ -54,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
      /* ... do your own business */
 ```
-
 
 ## EventTypes
 
@@ -222,7 +225,7 @@ Each object from Github API have his PHP class.
 Features from roadmap and bug fixes are prioritized. Fork the repository, create a feature branch and then launch the testsuite:
 
 ```bash
-$ phpunit
+$ ./vendor/bin/phpunit
 ```
 
 Thank you for help, let us know if you use this library ;)
