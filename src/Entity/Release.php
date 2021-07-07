@@ -31,7 +31,7 @@ class Release
         return new static($data, $repository, $sender);
     }
 
-    public function __construct(array $data, Repository $repository, User $sender)
+    final public function __construct(array $data, Repository $repository, User $sender)
     {
         $this->url = $data['url'];
         $this->assetsUrl = $data['assets_url'];

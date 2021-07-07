@@ -24,34 +24,40 @@ class User
     private $type;
     private $siteAdmin;
 
-    public static function createFromData(array $data)
+    /**
+     * @param array<string> $data
+     */
+    public static function createFromData(array $data) : self
     {
         if (isset($data['login'], $data['id'])) {
             return new static($data);
         }
 
-        return $data['name'];
+        $data['login'] = $data['name'];
+        $data['id'] = 'undefined';
+
+        return new static($data);
     }
 
-    public function __construct($data)
+    final public function __construct($data)
     {
         $this->login = $data['login'];
         $this->id = $data['id'];
-        $this->avatarUrl = $data['avatar_url'];
-        $this->gravatarId = $data['gravatar_id'];
-        $this->apiUrl = $data['url'];
-        $this->htmlUrl = $data['html_url'];
-        $this->followersUrl = $data['followers_url'];
-        $this->followingUrl = $data['following_url'];
-        $this->gistsUrl = $data['gists_url'];
-        $this->starredUrl = $data['starred_url'];
-        $this->subscriptionsUrl = $data['subscriptions_url'];
-        $this->organizationsUrl = $data['organizations_url'];
-        $this->repositoriesUrl = $data['repos_url'];
-        $this->eventsUrl = $data['events_url'];
-        $this->receivedEventsUrl = $data['received_events_url'];
-        $this->type = $data['type'];
-        $this->siteAdmin = $data['site_admin'];
+        $this->avatarUrl = $data['avatar_url'] ?? '';
+        $this->gravatarId = $data['gravatar_id'] ?? '';
+        $this->apiUrl = $data['url'] ?? '';
+        $this->htmlUrl = $data['html_url'] ?? '';
+        $this->followersUrl = $data['followers_url'] ?? '';
+        $this->followingUrl = $data['following_url'] ?? '';
+        $this->gistsUrl = $data['gists_url'] ?? '';
+        $this->starredUrl = $data['starred_url'] ?? '';
+        $this->subscriptionsUrl = $data['subscriptions_url'] ?? '';
+        $this->organizationsUrl = $data['organizations_url'] ?? '';
+        $this->repositoriesUrl = $data['repos_url'] ?? '';
+        $this->eventsUrl = $data['events_url'] ?? '';
+        $this->receivedEventsUrl = $data['received_events_url'] ?? '';
+        $this->type = $data['type'] ?? '';
+        $this->siteAdmin = $data['site_admin'] ?? '';
     }
 
     /**
