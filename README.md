@@ -33,9 +33,12 @@ You can use ``InvalidPhpConfigurationException`` to catch the exception:
 
 ```php
 <?php
+
+use LoveOSS\Github\Exception\InvalidPhpConfigurationException;
+
 try {
     $commits = $pullRequest->getCommits(); // use the GitHub API when called.
-} catch(\LoveOSS\Github\Exception\InvalidPhpConfigurationException $e) {
+} catch(InvalidPhpConfigurationException $exception) {
     // ...
 }
 ```
@@ -219,7 +222,7 @@ Each object from Github API have his PHP class.
 * Add the missing missing events
 * Add doctrine mapping file for doctrine/dbal
 
-## Contribute
+## How to contribute ?
 
 **All features are tested, and all contributions need to be tested in order to be accepted.**
 
