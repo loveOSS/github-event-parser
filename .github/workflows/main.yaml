@@ -30,8 +30,8 @@ jobs:
       - name: "PHPStan"
         run: composer phpstan
 
-      #- name: "PHP-CS-Fixer"
-      #  run: composer cs-fix
+      - name: "PHP-CS-Fixer"
+        run: composer cs-fix
 
       #- name: "Psalm"
       #  run: composer psalm

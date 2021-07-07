@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace LoveOSS\Github\Entity;
 
 class User
@@ -27,7 +25,7 @@ class User
     /**
      * @param array<string> $data
      */
-    public static function createFromData(array $data) : self
+    public static function createFromData(array $data): self
     {
         if (isset($data['login'], $data['id'])) {
             return new static($data);

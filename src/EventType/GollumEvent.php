@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace LoveOSS\Github\EventType;
 
 use LoveOSS\Github\Entity\Page;

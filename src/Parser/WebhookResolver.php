@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace LoveOSS\Github\Parser;
 
 use LoveOSS\Github\Exception\EventNotFoundException;
