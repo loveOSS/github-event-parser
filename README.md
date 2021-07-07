@@ -213,9 +213,10 @@ Each object from Github API have his PHP class.
 * Repository
 * User
 
-## ROADMAP
+## Roadmap
 
-* Add all missing events
+* Improve and monitor the quality of this library
+* Add the missing missing events
 * Add doctrine mapping file for doctrine/dbal
 
 ## Contribute
