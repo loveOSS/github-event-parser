@@ -1,0 +1,33 @@
+{
+    "name": "love-oss/github-event-parser",
+    "description": "PHP library to get a readable representation of events dispatched by Github API v3",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["github", "event", "json parser"],
+    "homepage": "https://github.com/loveOSS/github-event-parser",
+    "authors": [
+        {
+            "name": "Mickaël Andrieu",
+            "email": "mickael.andrieu@solvolabs.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "LoveOSS\\Github\\": "" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "Tests/" }
+    },
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.7",
+        "friendsofphp/php-cs-fixer": "~1.11"
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
