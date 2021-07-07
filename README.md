@@ -1,8 +1,6 @@
 Github event parser library
 ============================
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/4bb32121-6a01-4b8c-9044-8a77e52dfa2c/mini.png)](https://insight.sensiolabs.com/projects/4bb32121-6a01-4b8c-9044-8a77e52dfa2c)
-
 This is a naive PHP library to provide readable representations of json responses from [Github Events Api v3](https://developer.github.com/v3/activity/events/types/).
 
 Thanks to the Github webhooks, any administrator of a repository can access and listen theses events returned into json responses.
