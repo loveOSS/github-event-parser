@@ -62,7 +62,7 @@ class PullRequest
         return new static($data);
     }
 
-    public function __construct($data)
+    final public function __construct($data)
     {
         $this->url = $data['url'];
         $this->id = $data['id'];
@@ -88,6 +88,7 @@ class PullRequest
         $this->reviewCommentUrl = isset($data['review_comment_url']) ? $data['review_comment_url'] : null;
         $this->reviewCommentsUrl = isset($data['review_comments_url']) ? $data['review_comments_url'] : null;
         $this->statusesUrl = isset($data['statuses_url']) ? $data['statuses_url'] : null;
+        $this->isLocked = isset($data['locked']) ? $data['locked'] : null;
         $this->isMerged = isset($data['merged']) ? $data['merged'] : null;
         $this->isMergeable = isset($data['mergeable']) ? $data['mergeable'] : null;
         $this->mergeableState = isset($data['mergeable_state']) ? $data['mergeable_state'] : false;
@@ -274,7 +275,7 @@ class PullRequest
      */
     public function isLocked()
     {
-        return (bool) $this->islocked;
+        return (bool) $this->isLocked;
     }
 
     /**
@@ -884,6 +885,7 @@ class PullRequest
      */
     public function getCommits()
     {
+        $commits = [];
         if ('' === ini_get('user_agent')) {
             throw new UserAgentNotFoundException();
         }

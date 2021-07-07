@@ -14,7 +14,7 @@ class CommitUser
         return new static($data);
     }
 
-    public function __construct($data)
+    final public function __construct($data)
     {
         $this->date = new \DateTime($data['date']);
         $this->name = $data['name'];

@@ -18,7 +18,7 @@ class Page
         return new static($data);
     }
 
-    public function __construct($data)
+    final public function __construct($data)
     {
         $this->pageName = $data['page_name'];
         $this->title = $data['title'];

@@ -41,7 +41,7 @@ class Integration
         return new static($data);
     }
 
-    public function __construct(array $data)
+    final public function __construct(array $data)
     {
         $this->installationId = $data['id'];
         $this->account = isset($data['account']) ? User::createFromData($data['account']) : null;

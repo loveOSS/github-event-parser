@@ -39,7 +39,7 @@ class Issue
         return new static($data);
     }
 
-    public function __construct($data)
+    final public function __construct($data)
     {
         $this->url = $data['url'];
         $this->labelsUrl = $data['labels_url'];
