@@ -60,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      echo($event::name()); // IssueCommentEvent
 
      /* ... do your own business */
+}
 ```
 
 ## EventTypes
