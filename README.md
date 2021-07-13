@@ -1,6 +1,10 @@
 Github event parser library
 ============================
 
+
+[![SensioLabsInsight](https://insight.symfony.com/projects/4bb32121-6a01-4b8c-9044-8a77e52dfa2c/mini.png)](https://symfony.sensiolabs.com/projects/4bb32121-6a01-4b8c-9044-8a77e52dfa2c)
+
+
 > This library is a reupload of a library created by [Mickaël Andrieu](https://github.com/mickaelandrieu) in 2016 for the Lp Digital web agency, Paris, France.
   We have obtained the authorization from the former creator to change the licence from GNU-GPL v2 to MIT.
   PHP Developers : consider using love-oss/github-event-parser as a direct replacement of lp-digital/github-event-parser.
