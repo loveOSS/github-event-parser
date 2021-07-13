@@ -29,5 +29,7 @@ abstract class RepositoryAwareEventType extends AbstractEventType
         } catch (\Exception $e) {
             throw new RepositoryNotFoundException($e->getMessage());
         }
+
+        return $this;
     }
 }

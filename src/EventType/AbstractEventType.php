@@ -47,5 +47,7 @@ abstract class AbstractEventType implements GithubEventInterface
         $this->data = $data;
 
         $this->integration = isset($data['installation']) ? Integration::createFromData($data['installation']) : null;
+
+        return $this;
     }
 }
