@@ -10,37 +10,28 @@ class IssueCommentEvent extends RepositoryAwareEventType implements ActionableEv
 {
     public $action;
 
-    /**
-     * @var Issue
-     */
-    public $issue;
+    public Issue $issue;
 
-    /**
-     * @var User
-     */
-    public $user;
+    public User $user;
 
-    /**
-     * @var Comment
-     */
-    public $comment;
+    public Comment $comment;
 
     public function getAction()
     {
         return $this->action;
     }
 
-    public static function name()
+    public static function name(): string
     {
         return 'IssueCommentEvent';
     }
 
-    public static function fields()
+    public static function fields(): array
     {
         return ['action', 'issue', 'comment'];
     }
 
-    public function createFromData($data)
+    public function createFromData($data): self
     {
         parent::createFromData($data);
 

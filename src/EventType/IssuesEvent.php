@@ -11,42 +11,30 @@ class IssuesEvent extends RepositoryAwareEventType implements ActionableEventInt
 {
     public $action;
 
-    /**
-     * @var User|null
-     */
-    public $assignee;
+    public ?User $assignee;
 
-    /**
-     * @var Issue
-     */
-    public $issue;
+    public Issue $issue;
 
-    /**
-     * @var Label|null
-     */
-    public $label;
+    public ?Label $label;
 
-    /**
-     * @var User
-     */
-    public $sender;
+    public User $sender;
 
     public function getAction()
     {
         return $this->action;
     }
 
-    public static function name()
+    public static function name(): string
     {
         return 'IssuesEvent';
     }
 
-    public static function fields()
+    public static function fields(): array
     {
         return ['action', 'issue'];
     }
 
-    public function createFromData($data)
+    public function createFromData($data): self
     {
         parent::createFromData($data);
 
@@ -60,37 +48,37 @@ class IssuesEvent extends RepositoryAwareEventType implements ActionableEventInt
         return $this;
     }
 
-    public function isAssigned()
+    public function isAssigned(): bool
     {
         return 'assigned' === $this->action;
     }
 
-    public function isUnassigned()
+    public function isUnassigned(): bool
     {
         return 'unassigned' === $this->action;
     }
 
-    public function isLabeled()
+    public function isLabeled(): bool
     {
         return 'labeled' === $this->action;
     }
 
-    public function isUnlabeled()
+    public function isUnlabeled(): bool
     {
         return 'unlabeled' === $this->action;
     }
 
-    public function isOpened()
+    public function isOpened(): bool
     {
         return 'opened' === $this->action;
     }
 
-    public function isClosed()
+    public function isClosed(): bool
     {
         return 'closed' === $this->action;
     }
 
-    public function isReopened()
+    public function isReopened(): bool
     {
         return 'reopened' === $this->action;
     }

@@ -7,20 +7,14 @@ use LoveOSS\Github\Exception\RepositoryNotFoundException;
 
 abstract class RepositoryAwareEventType extends AbstractEventType
 {
-    /**
-     * @var Repository
-     */
-    public $repository;
+    public Repository $repository;
 
-    /**
-     * @return Repository
-     */
-    public function getRepository()
+    public function getRepository(): Repository
     {
         return $this->repository;
     }
 
-    public function createFromData($data)
+    public function createFromData($data): self
     {
         parent::createFromData($data);
 

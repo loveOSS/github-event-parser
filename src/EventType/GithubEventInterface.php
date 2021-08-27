@@ -4,32 +4,13 @@ namespace LoveOSS\Github\EventType;
 
 interface GithubEventInterface
 {
-    /**
-     * @return array list of fields that need to be present to define the event
-     */
-    public static function fields();
+    public static function fields(): array;
 
-    /**
-     * @return string name event
-     */
-    public static function name();
+    public static function name(): string;
 
-    /**
-     * @param $data array data of the event
-     *
-     * @return bool validation rule
-     */
-    public static function isValid($data);
+    public static function isValid(array $data): bool;
 
-    /**
-     * @param $data array data of the event
-     *
-     * @return GithubEventInterface
-     */
-    public function createFromData($data);
+    public function createFromData(array $data): self;
 
-    /**
-     * @return array data of the event
-     */
-    public function getPayload();
+    public function getPayload(): array;
 }

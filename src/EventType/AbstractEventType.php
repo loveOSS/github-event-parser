@@ -6,32 +6,26 @@ use LoveOSS\Github\Entity\Integration;
 
 abstract class AbstractEventType implements GithubEventInterface
 {
-    /**
-     * @var array
-     */
-    private $data;
+    private array $data;
 
-    /**
-     * @var Integration|null
-     */
-    public $integration;
+    public ?Integration $integration;
 
-    public function getPayload()
+    public function getPayload(): array
     {
         return $this->data;
     }
 
-    public static function fields()
+    public static function fields(): array
     {
         return [];
     }
 
-    public static function name()
+    public static function name(): string
     {
         return get_called_class();
     }
 
-    public static function isValid($data)
+    public static function isValid(array $data): bool
     {
         foreach (static::fields() as $field) {
             if ((isset($data[$field]) || array_key_exists($field, $data)) === false) {
@@ -42,7 +36,7 @@ abstract class AbstractEventType implements GithubEventInterface
         return true;
     }
 
-    public function createFromData($data)
+    public function createFromData(array $data): self
     {
         $this->data = $data;
 

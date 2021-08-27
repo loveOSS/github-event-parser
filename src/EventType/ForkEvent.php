@@ -22,17 +22,17 @@ class ForkEvent extends RepositoryAwareEventType
      */
     public $forker;
 
-    public static function name()
+    public static function name(): string
     {
         return 'ForkEvent';
     }
 
-    public static function fields()
+    public static function fields(): array
     {
         return ['forkee'];
     }
 
-    public function createFromData($data)
+    public function createFromData($data): self
     {
         parent::createFromData($data);
 

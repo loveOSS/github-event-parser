@@ -8,27 +8,24 @@ class WatchEvent extends RepositoryAwareEventType implements ActionableEventInte
 {
     public $action;
 
-    /**
-     * @var User
-     */
-    public $user;
+    public User $user;
 
     public function getAction()
     {
         return $this->action;
     }
 
-    public static function name()
+    public static function name(): string
     {
         return 'WatchEvent';
     }
 
-    public static function fields()
+    public static function fields(): array
     {
         return ['action'];
     }
 
-    public static function isValid($data)
+    public static function isValid($data): bool
     {
         if (array_key_exists('action', $data) && $data['action'] === 'started') {
             return true;
@@ -37,7 +34,7 @@ class WatchEvent extends RepositoryAwareEventType implements ActionableEventInte
         return false;
     }
 
-    public function createFromData($data)
+    public function createFromData($data): self
     {
         parent::createFromData($data);
 

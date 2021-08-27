@@ -13,23 +13,20 @@ class PushEvent extends RepositoryAwareEventType
     public $pusher;
     public $ref;
 
-    /**
-     * @var User
-     */
-    public $sender;
+    public User $sender;
     public $size;
 
-    public static function name()
+    public static function name(): string
     {
         return 'PushEvent';
     }
 
-    public static function fields()
+    public static function fields(): array
     {
         return ['ref', 'head', 'before', 'commits'];
     }
 
-    public function createFromData($data)
+    public function createFromData($data): self
     {
         parent::createFromData($data);
 
