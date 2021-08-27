@@ -32,7 +32,7 @@
     "minimum-stability": "stable",
     "scripts": {
         "cs-fix": "@php ./vendor/bin/php-cs-fixer fix",
-        "phpqa": "@php ./vendor/bin/phpqa --report --tools phpcs:0,phpmd:0,phpmetrics,phploc,pdepend,security-checker:0,parallel-lint:0 --ignoredDirs vendor,tests",
+        "phpqa": "@php ./vendor/bin/phpqa --report --tools phpcs:0,phpmetrics,phploc,pdepend,security-checker:0,parallel-lint:0 --ignoredDirs vendor,tests",
         "phpstan": "@php ./vendor/bin/phpstan analyse src --level 5 -c extension.neon",
         "psalm": "@php ./vendor/bin/psalm --threads=8 --diff",
         "test": "@php ./vendor/bin/phpunit"
