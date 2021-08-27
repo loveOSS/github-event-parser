@@ -17,17 +17,17 @@ class DeploymentStatusEvent extends RepositoryAwareEventType
      */
     public $sender;
 
-    public static function name()
+    public static function name(): string
     {
         return 'DeploymentStatusEvent';
     }
 
-    public static function fields()
+    public static function fields(): array
     {
         return ['deployment_status', 'deployment', 'repository'];
     }
 
-    public function createFromData($data)
+    public function createFromData($data): self
     {
         parent::createFromData($data);
 

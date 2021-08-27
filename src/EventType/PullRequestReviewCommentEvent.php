@@ -10,37 +10,28 @@ class PullRequestReviewCommentEvent extends RepositoryAwareEventType implements 
 {
     public $action;
 
-    /**
-     * @var Comment
-     */
-    public $comment;
+    public Comment $comment;
 
-    /**
-     * @var PullRequest
-     */
-    public $pullRequest;
+    public PullRequest $pullRequest;
 
-    /**
-     * @var User
-     */
-    public $sender;
+    public User $sender;
 
     public function getAction()
     {
         return $this->action;
     }
 
-    public static function name()
+    public static function name(): string
     {
         return 'PullRequestReviewCommentEvent';
     }
 
-    public static function fields()
+    public static function fields(): array
     {
         return ['action', 'comment', 'pull_request'];
     }
 
-    public static function isValid($data)
+    public static function isValid($data): bool
     {
         if (parent::isValid($data)) {
             if ($data['action'] === 'created') {
@@ -51,7 +42,7 @@ class PullRequestReviewCommentEvent extends RepositoryAwareEventType implements 
         return false;
     }
 
-    public function createFromData($data)
+    public function createFromData($data): self
     {
         parent::createFromData($data);
 

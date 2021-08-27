@@ -8,45 +8,30 @@ class IntegrationInstallationRepositoriesEvent extends AbstractEventType impleme
 {
     public $action;
 
-    /**
-     * @var User
-     */
-    public $sender;
+    public User $sender;
 
-    /**
-     * @var string
-     */
-    public $repositorySelection;
+    public string $repositorySelection;
 
-    /**
-     * @var array
-     */
-    public $repositoryAdded;
+    public array $repositoryAdded;
 
-    /**
-     * @var array
-     */
-    public $repositoryRemoved;
+    public array $repositoryRemoved;
 
-    /**
-     * @return string action name
-     */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->action;
     }
 
-    public static function name()
+    public static function name(): string
     {
         return 'IntegrationInstallationRepositoriesEvent';
     }
 
-    public static function fields()
+    public static function fields(): array
     {
         return ['action', 'installation', 'repository_selection', 'repositories_added', 'repositories_removed'];
     }
 
-    public function createFromData($data)
+    public function createFromData($data): self
     {
         parent::createFromData($data);
 

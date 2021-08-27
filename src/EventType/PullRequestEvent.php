@@ -9,34 +9,29 @@ use LoveOSS\Github\Entity\User;
 class PullRequestEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
     public $action;
+
     public $number;
 
-    /**
-     * @var PullRequest
-     */
-    public $pullRequest;
+    public PullRequest $pullRequest;
 
-    /**
-     * @var User
-     */
-    public $sender;
+    public User $sender;
 
     public function getAction()
     {
         return $this->action;
     }
 
-    public static function name()
+    public static function name(): string
     {
         return 'PullRequestEvent';
     }
 
-    public static function fields()
+    public static function fields(): array
     {
         return ['action', 'number', 'pull_request'];
     }
 
-    public function createFromData($data)
+    public function createFromData($data): self
     {
         parent::createFromData($data);
 

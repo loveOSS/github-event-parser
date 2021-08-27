@@ -6,15 +6,9 @@ use LoveOSS\Github\Entity\User;
 
 class IntegrationInstallationEvent extends AbstractEventType implements ActionableEventInterface
 {
-    /**
-     * @var string
-     */
-    public $action;
+    public string $action;
 
-    /**
-     * @var User
-     */
-    public $sender;
+    public User $sender;
 
     /**
      * {@inheritdoc}
@@ -24,17 +18,17 @@ class IntegrationInstallationEvent extends AbstractEventType implements Actionab
         return $this->action;
     }
 
-    public static function name()
+    public static function name(): string
     {
         return 'IntegrationInstallationEvent';
     }
 
-    public static function fields()
+    public static function fields(): array
     {
         return ['action', 'installation'];
     }
 
-    public function createFromData($data)
+    public function createFromData($data): self
     {
         parent::createFromData($data);
 

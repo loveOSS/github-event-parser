@@ -7,27 +7,21 @@ use LoveOSS\Github\Entity\User;
 
 class GollumEvent extends RepositoryAwareEventType
 {
-    /**
-     * @var array
-     */
-    public $pages;
+    public array $pages;
 
-    /**
-     * @var User
-     */
-    public $sender;
+    public User $sender;
 
-    public static function name()
+    public static function name(): string
     {
         return 'GollumEvent';
     }
 
-    public static function fields()
+    public static function fields(): array
     {
         return ['pages'];
     }
 
-    public function createFromData($data)
+    public function createFromData($data): self
     {
         parent::createFromData($data);
 
@@ -37,7 +31,7 @@ class GollumEvent extends RepositoryAwareEventType
         return $this;
     }
 
-    private function parsePages(array $arrayPages)
+    private function parsePages(array $arrayPages): array
     {
         $pages = [];
         foreach ($arrayPages as $pageEntry) {
