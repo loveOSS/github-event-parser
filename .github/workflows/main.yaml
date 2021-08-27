@@ -33,11 +33,11 @@ jobs:
       - name: "PHP-CS-Fixer"
         run: composer cs-fix
 
-      #- name: "Psalm"
-      #  run: composer psalm
+      - name: "Psalm"
+        run: composer psalm
 
-      #- name: "PHPQA"
-      #  run: composer phpqa
+      - name: "PHPQA"
+        run: composer phpqa
 
       - name: "Test suite"
         run: composer test

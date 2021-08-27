@@ -21,7 +21,7 @@
         "php": "^7.4|^8.0"
     },
     "require-dev": {
-        "edgedesign/phpqa": "^v1.24",
+        "edgedesign/phpqa": "^v1.25",
         "phpunit/phpunit": "^8.0",
         "friendsofphp/php-cs-fixer": "^2.18",
         "vimeo/psalm": "^4.3",
