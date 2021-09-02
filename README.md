@@ -2,7 +2,7 @@ Github event parser library
 ============================
 
 
-[![SensioLabsInsight](https://insight.symfony.com/projects/4bb32121-6a01-4b8c-9044-8a77e52dfa2c/mini.png)](https://symfony.sensiolabs.com/projects/4bb32121-6a01-4b8c-9044-8a77e52dfa2c)
+[![SensioLabsInsight](https://insight.symfony.com/projects/4bb32121-6a01-4b8c-9044-8a77e52dfa2c/mini.png)](https://symfony.sensiolabs.com/projects/4bb32121-6a01-4b8c-9044-8a77e52dfa2c) [![PHPStan](https://img.shields.io/badge/PHPStan-Level%205-brightgreen.svg?style=flat&logo=php)](https://shields.io/#/)
 
 
 > This library is a reupload of a library created by [Mickaël Andrieu](https://github.com/mickaelandrieu) in 2016 for the Lp Digital web agency, Paris, France.
