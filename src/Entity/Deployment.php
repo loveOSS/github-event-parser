@@ -13,10 +13,7 @@ class Deployment
     private $environment;
     private $description;
 
-    /**
-     * @var User
-     */
-    private $creator;
+    private \LoveOSS\Github\Entity\User $creator;
     private $createdAt;
     private $updatedAt;
     private $statusesUrl;

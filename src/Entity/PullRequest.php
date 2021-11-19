@@ -67,7 +67,7 @@ class PullRequest
         $this->htmlUrl = $data['html_url'];
         $diffUrl = isset($data['diff_url']) ? $data['diff_url'] : null;
         $diffUrlFromPR = isset($data['pull_request']['diff_url']) ? $data['pull_request']['diff_url'] : null;
-        $this->diffUrl = !is_null($diffUrl) ? $diffUrl : $diffUrlFromPR;
+        $this->diffUrl = is_null($diffUrl) ? $diffUrlFromPR : $diffUrl;
         $this->issueUrl = isset($data['issue_url']) ? $data['issue_url'] : null;
         $this->number = $data['number'];
         $this->state = $data['state'];

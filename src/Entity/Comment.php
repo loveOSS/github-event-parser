@@ -34,11 +34,7 @@ class Comment
         $this->htmlUrl = $data['html_url'] ?? '';
         $this->id = $data['id'] ?? '';
 
-        if (is_array($data['user'])) {
-            $user = $data['user'];
-        } else {
-            $user = [];
-        }
+        $user = is_array($data['user']) ? $data['user'] : [];
 
         $this->user = User::createFromData($user);
         $this->position = isset($data['position']) ? $data['position'] : '';

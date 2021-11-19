@@ -7,11 +7,11 @@ use LoveOSS\Github\Entity\User;
 
 class ReleaseEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
-    public $action;
+    public string $action;
 
     public Release $release;
 
-    public function getAction()
+    public function getAction(): string
     {
         return $this->action;
     }
@@ -26,7 +26,7 @@ class ReleaseEvent extends RepositoryAwareEventType implements ActionableEventIn
         return ['action', 'release', 'sender', 'repository'];
     }
 
-    public function createFromData($data): self
+    public function createFromData(array $data): self
     {
         parent::createFromData($data);
 

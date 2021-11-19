@@ -33,13 +33,7 @@ class PullRequestReviewCommentEvent extends RepositoryAwareEventType implements 
 
     public static function isValid($data): bool
     {
-        if (parent::isValid($data)) {
-            if ($data['action'] === 'created') {
-                return true;
-            }
-        }
-
-        return false;
+        return parent::isValid($data) && $data['action'] === 'created';
     }
 
     public function createFromData($data): self

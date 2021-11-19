@@ -26,7 +26,7 @@ class PushEvent extends RepositoryAwareEventType
         return ['ref', 'head', 'before', 'commits'];
     }
 
-    public function createFromData($data): self
+    public function createFromData(array $data): self
     {
         parent::createFromData($data);
 

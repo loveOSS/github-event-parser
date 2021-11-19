@@ -9,10 +9,7 @@ class Integration
      */
     private $installationId;
 
-    /**
-     * @var User
-     */
-    private $account;
+    private ?\LoveOSS\Github\Entity\User $account = null;
 
     /**
      * @var string

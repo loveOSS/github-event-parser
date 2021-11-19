@@ -2,11 +2,12 @@
 
 namespace LoveOSS\Github\Parser;
 
+use LoveOSS\Github\EventType\GithubEventInterface;
 use LoveOSS\Github\Exception\EventNotFoundException;
 
 class WebhookResolver
 {
-    public function resolve(array $data)
+    public function resolve(array $data): GithubEventInterface
     {
         foreach ($this->eventsType() as $eventType) {
             if ($eventType['class']::isValid($data)) {
@@ -17,7 +18,7 @@ class WebhookResolver
         throw new EventNotFoundException();
     }
 
-    public function eventsType()
+    public function eventsType(): array
     {
         $classes = [
             'LoveOSS\Github\EventType\IssuesEvent',
@@ -45,7 +46,7 @@ class WebhookResolver
         }
 
         usort($eventTypes, function ($a, $b) {
-            if ($a['priority'] == $b['priority']) {
+            if ($a['priority'] === $b['priority']) {
                 return 0;
             }
 

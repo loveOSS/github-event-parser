@@ -13,7 +13,7 @@ class Release
     private $targetCommitish;
     private $name;
     private $isDraft;
-    private $author;
+    private \LoveOSS\Github\Entity\User $author;
     private $isPreRelease;
     private $createdAt;
     private $publishedAt;
@@ -21,8 +21,8 @@ class Release
     private $tarballUrl;
     private $zipballUrl;
     private $body;
-    private $repository;
-    private $sender;
+    private \LoveOSS\Github\Entity\Repository $repository;
+    private \LoveOSS\Github\Entity\User $sender;
 
     public static function createFromData(array $data, Repository $repository, User $sender)
     {
