@@ -17,10 +17,7 @@ class ForkEvent extends RepositoryAwareEventType
      */
     public $owner;
 
-    /**
-     * @var User
-     */
-    public $forker;
+    public ?\LoveOSS\Github\Entity\User $forker = null;
 
     public static function name(): string
     {

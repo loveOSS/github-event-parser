@@ -13,19 +13,13 @@ class Issue
     private $number;
     private $title;
 
-    /**
-     * @var User
-     */
-    private $user;
-    private $labels;
+    private \LoveOSS\Github\Entity\User $user;
+    private array $labels;
     private $state;
     private $isLocked;
 
-    /**
-     * @var User|null
-     */
-    private $assignee;
-    private $milestone;
+    private ?\LoveOSS\Github\Entity\User $assignee = null;
+    private ?bool $milestone = null;
     private $commentsCount;
     private $createdAt;
     private $updatedAt;

@@ -8,10 +8,7 @@ class Repository
     private $name;
     private $fullName;
 
-    /**
-     * @var User
-     */
-    private $owner;
+    private \LoveOSS\Github\Entity\User $owner;
     private $isPrivate;
     private $htmlUrl;
     private $description;
@@ -73,7 +70,7 @@ class Repository
     private $openIssues;
     private $watchers;
     private $defaultBranch;
-    private $isPublic;
+    private ?bool $isPublic = null;
 
     public static function createFromData(array $data)
     {

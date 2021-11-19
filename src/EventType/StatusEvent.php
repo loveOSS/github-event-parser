@@ -6,7 +6,7 @@ use LoveOSS\Github\Entity\User;
 
 class StatusEvent extends RepositoryAwareEventType
 {
-    public $branches;
+    public array $branches;
 
     public User $committer;
     public string $description;
@@ -24,7 +24,7 @@ class StatusEvent extends RepositoryAwareEventType
         return ['sha', 'state', 'description', 'target_url', 'branches'];
     }
 
-    public function createFromData($data): self
+    public function createFromData(array $data): self
     {
         parent::createFromData($data);
 

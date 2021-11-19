@@ -6,11 +6,11 @@ use LoveOSS\Github\Entity\User;
 
 class WatchEvent extends RepositoryAwareEventType implements ActionableEventInterface
 {
-    public $action;
+    public string $action;
 
     public User $user;
 
-    public function getAction()
+    public function getAction(): string
     {
         return $this->action;
     }
@@ -25,16 +25,12 @@ class WatchEvent extends RepositoryAwareEventType implements ActionableEventInte
         return ['action'];
     }
 
-    public static function isValid($data): bool
+    public static function isValid(array $data): bool
     {
-        if (array_key_exists('action', $data) && $data['action'] === 'started') {
-            return true;
-        }
-
-        return false;
+        return array_key_exists('action', $data) && $data['action'] === 'started';
     }
 
-    public function createFromData($data): self
+    public function createFromData(array $data): self
     {
         parent::createFromData($data);
 

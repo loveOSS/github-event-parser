@@ -28,7 +28,7 @@ abstract class AbstractEventType implements GithubEventInterface
     public static function isValid(array $data): bool
     {
         foreach (static::fields() as $field) {
-            if ((isset($data[$field]) || array_key_exists($field, $data)) === false) {
+            if (!isset($data[$field]) && !array_key_exists($field, $data)) {
                 return false;
             }
         }

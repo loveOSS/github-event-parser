@@ -14,7 +14,7 @@ abstract class RepositoryAwareEventType extends AbstractEventType
         return $this->repository;
     }
 
-    public function createFromData($data): self
+    public function createFromData(array $data): self
     {
         parent::createFromData($data);
 

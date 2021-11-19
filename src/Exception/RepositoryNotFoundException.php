@@ -6,7 +6,7 @@ use Exception;
 
 class RepositoryNotFoundException extends Exception
 {
-    public function __construct($errorMessage)
+    public function __construct(string $errorMessage)
     {
         $exceptionMessage = sprintf("A repository can't be extracted from data: %s", $errorMessage);
 

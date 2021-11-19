@@ -12,10 +12,7 @@ class DeploymentStatusEvent extends RepositoryAwareEventType
      */
     public $deployment;
 
-    /**
-     * @var User
-     */
-    public $sender;
+    public ?\LoveOSS\Github\Entity\User $sender = null;
 
     public static function name(): string
     {

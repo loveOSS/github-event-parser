@@ -4,7 +4,10 @@ namespace LoveOSS\Github\Entity;
 
 class CommitUser
 {
-    private $date;
+    /**
+     * @var \DateTime|\DateTimeImmutable
+     */
+    private \DateTimeInterface $date;
     private $name;
     private $email;
 
